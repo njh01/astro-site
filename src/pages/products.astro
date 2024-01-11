@@ -7,7 +7,7 @@ import headphone from "../images/headphone_stand.png";
 
 <Layout title="products">
     <main>
-        <ul role="list" class="link-card-grid">
+        <ul class="link-product-grid">
             <ProductBoard
                 title="Headphone Stand"
                 product_image={headphone}
@@ -19,3 +19,11 @@ import headphone from "../images/headphone_stand.png";
         </ul>
     </main>
 </Layout>
+<style>
+    .link-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+	}
+</style>
