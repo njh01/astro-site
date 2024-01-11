@@ -1,9 +1,27 @@
 ---
+import { Image } from 'astro:assets'; 
 interface Props {
 	title: string;
-	body: string;
-	href: string;
+	product_image: string;
+	product_description: string;
+    href: string;
+
+    price: string;
+    stl_file: string;
 }
 
-const { href, title, body } = Astro.props;
+const { product_image, title, product_description, href, price, stl_file } = Astro.props;
 ---
+<li class="product-board">
+	<a href={href}>
+		<h2>
+			{title}
+		</h2>
+		<p>
+			<Image src={product_image} alt={product_description}/>
+		</p>
+        <p> 
+            ${price} file: {stl_file}
+        </p>
+	</a>
+</li>

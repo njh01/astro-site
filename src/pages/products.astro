@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductBoard from "../components/ProductBoard.astro"
+import { Image } from 'astro:assets'; 
+import headphone from "../images/headphone_stand.png";
+---
+
+<Layout title="products">
+    <main>
+        <ul role="list" class="link-card-grid">
+            <ProductBoard
+                title="Headphone Stand"
+                product_image={headphone}
+                product_description="Desk stand for headphones or a headset."
+                price="20"
+                stl_file="./scr/stls/headphoneStand.stl"
+                href=""
+            />
+        </ul>
+    </main>
+</Layout>
