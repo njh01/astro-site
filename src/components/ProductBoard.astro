@@ -4,33 +4,42 @@ interface Props {
 	title: string;
 	product_image: string;
 	product_description: string;
-    href: string;
+    link_href: string;
 
     price: string;
     stl_file: string;
 }
 
-const { product_image, title, product_description, href, price, stl_file } = Astro.props;
+const { product_image, title, product_description, link_href, price, stl_file } = Astro.props;
 ---
-<li class="product-board">
-	<a href={href}>
-        
-		<h2 style="text-align: center;">
-			{title}
-		</h2>
-		<p>
-			<Image src={product_image} alt={product_description} width = {400} height = {400}/>
-		</p>
-        <p1 style="text-align: center;">
-            Price: ${price} 
-        </p1>
-        <br>
-        <p2>
-            file download: {stl_file}
-        </p2>
-	</a>
-</li>
+<div class="outer-container">
+    <div class="product-board">
+        <a>
+            <h2 style="text-align: center;">
+                {title}
+            </h2>
+            <p>
+                <Image src={product_image} alt={product_description} width = {400} height = {400}/>
+            </p>
+            <p1 style="text-align: center;">
+                Price: ${price} 
+            </p1>
+            <br>
+            <p2 onclick="navigateToLink('{link_href}')">
+                file download: {stl_file}
+            </p2>
+        </a>
+    </div>
+</div>
+<script>
+    function navigateToLink(href) {
+        window.location.href = href;
+    }
+</script>
 <style>
+    .outer-container {
+        padding: 20px;
+    }
     h2 {
 		margin: 0;
 		font-size: 1.25rem;
@@ -40,7 +49,15 @@ const { product_image, title, product_description, href, price, stl_file } = Ast
         text-decoration: none;
 	}
     p1 {
+        margin: 5px 0;
         color: white;
+    }
+    p2 {
+        margin: 10px 0 0;
+        font-size: 1.25rem;
+        color: white;
+        border-bottom: none;
+        cursor: pointer
     }
     .product-board {
     list-style: none;
