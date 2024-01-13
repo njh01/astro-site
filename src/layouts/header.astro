@@ -1,12 +1,63 @@
-<header>
-  <nav>
-    <ul style="text-align: center;">
-    <a href="/">Home</a> 
-    <a href="./products">Products</a>
-    <a href="./howitsmade">How It's Made</a>
-    <a href="./lofi">LoFi Printer Beats</a>
-    <a href="./about">About</a>
-    <a href="./checkout">Checkout</a>
-    </ul>
-  </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Bar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #ffcc00;
+        }
+        .astro-container {
+            padding-top: 20px; /* Adjust this value as needed */
+        }
+
+        .astro-component {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/">Home</a> 
+        <a href="./products">Products</a>
+        <a href="./howitsmade">How It's Made</a>
+        <a href="./lofi">LoFi Printer Beats</a>
+        <a href="./about">About</a>
+        <a href="./checkout">Checkout</a>
+    </header>
+    <div class="content">
+        <div class="astro-container">
+            <div class="astro-component">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
