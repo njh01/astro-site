@@ -4,36 +4,39 @@ interface Props {
 	title: string;
 	product_image: string;
 	product_description: string;
-    link_href: string;
 
     price: string;
     stl_file: string;
 }
 
-const { product_image, title, product_description, link_href, price, stl_file } = Astro.props;
+const { product_image, title, product_description, price, stl_file } = Astro.props;
 ---
 <div class="outer-container">
     <div class="product-board">
-        <a>
+        <a1>
             <h2 style="text-align: center;">
                 {title}
             </h2>
+            <button onclick="addToCart()">
+                Add to Cart
+            </button>
             <p>
                 <Image src={product_image} alt={product_description} width = {400} height = {400}/>
             </p>
             <p1 style="text-align: center;">
-                Price: ${price} 
+                ${price} 
             </p1>
             <br>
-            <p2 onclick="navigateToLink('{link_href}')">
-                file download: {stl_file}
-            </p2>
-        </a>
+            <a href={`${stl_file}`} download class="download-button">
+                Download File
+            </a>
+        </a1>
     </div>
 </div>
 <script>
-    function navigateToLink(href) {
-        window.location.href = href;
+    function addToCart() {
+        console.log('Product added to cart!');
+        // You can add more functionality here, such as updating a cart object.
     }
 </script>
 <style>
@@ -65,10 +68,41 @@ const { product_image, title, product_description, link_href, price, stl_file } 
     padding: 1px;
     background-color: #23262d;
     background-image: none;
-    border-radius: 7px;
+    border-radius: 3px;
     background-position: 100%;
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     width: 400px;
+    text-align: center;
+    }
+    .download-button {
+        style: center;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+        background-color: #5dd563;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #636466;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
     }
 </style>
